@@ -105,8 +105,13 @@ document.addEventListener("DOMContentLoaded", function(){
         todaslasImg[opcion2].setAttribute("src","imagenes/pregunta.jpg");       
        }
 
-       let imgElegida =[];
-       let imgElegidaID= [];
+       imgElegida =[];
+       imgElegidaID= [];
+       aciertos.textContent = conteo.length;
+       if (conteo.length===6){
+         
+
+       }
 
     
       
