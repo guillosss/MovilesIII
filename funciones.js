@@ -3,52 +3,52 @@ document.addEventListener("DOMContentLoaded", function(){
     
     let imagenes = [
         { 
-          img:"imagenes/Cap.jpg", 
-          name:"Cap",  
+          img:"imagenes/1.jpg", 
+          name:"uno",  
         },
         { 
-          img:"imagenes/Groot.jpg", 
-          name:"Groot",  
+          img:"imagenes/2.jpg", 
+          name:"dos",  
         },
         { 
-          img:"imagenes/Iron.jpg", 
-          name:"Iron",  
+          img:"imagenes/3.jpg", 
+          name:"tres",  
         },
         { 
-          img:"imagenes/Loki.jpg", 
-          name:"Loki",  
+          img:"imagenes/4.jpg", 
+          name:"cuatro",  
         },
         { 
-          img:"imagenes/Nat.jpg", 
-          name:"Nat",  
+          img:"imagenes/5.jpg", 
+          name:"cinco",  
         },
         { 
-          img:"imagenes/Thor.jpg", 
-          name:"Thor",  
+          img:"imagenes/6.jpg", 
+          name:"seis",  
         },
         { 
-          img:"imagenes/Cap.jpg", 
-          name:"Cap",  
+          img:"imagenes/1.jpg", 
+          name:"uno",  
         },
         { 
-          img:"imagenes/Groot.jpg", 
-          name:"Groot",  
+          img:"imagenes/2.jpg", 
+          name:"dos",  
         },
         { 
-          img:"imagenes/Iron.jpg", 
-          name:"Iron",  
+          img:"imagenes/3.jpg", 
+          name:"tres",  
         },
         { 
-          img:"imagenes/Loki.jpg", 
-          name:"Loki",  
+          img:"imagenes/4.jpg", 
+          name:"cuatro",  
         },
         { 
-          img:"imagenes/Nat.jpg", 
-          name:"Nat",  
+          img:"imagenes/5.jpg", 
+          name:"cinco",  
         },
         { 
-          img:"imagenes/Thor.jpg", 
-          name:"Thor",  
+          img:"imagenes/6.jpg", 
+          name:"seis",  
         }
     ]
     //tablero HTML
@@ -63,7 +63,7 @@ document.addEventListener("DOMContentLoaded", function(){
         for(let i=0; i< imagenes.length; i++){
             var img = document.createElement("img");
             img.setAttribute("data-id",i);
-            img.setAttribute("src","imagenes/Pregunta.jpg");
+            img.setAttribute("src","imagenes/incognito.jpg");
             img.setAttribute("width","200px");
             tablero.appendChild(img);
             img.addEventListener("click",descubrirImagen);
@@ -93,30 +93,33 @@ document.addEventListener("DOMContentLoaded", function(){
       let opcion1 = imgElegidaID[0];
       let opcion2 = imgElegidaID[1];
 
-      if (imgElegida[0] === imgElegida[1]){
+      if (imgElegida[0] === imgElegida[1] && imgElegidaID[0] != imgElegidaID[1]){
         alert("Haz acertado");
         todaslasImg[opcion1].setAttribute("src","imagenes/aciertos.jpg"); 
         todaslasImg[opcion2].setAttribute("src","imagenes/aciertos.jpg");
+        todaslasImg[opcion1].removeEventListener("click",descubrirImagen)
+        todaslasImg[opcion2].removeEventListener("click",descubrirImagen)
+        conteo.push(imgElegida)
+
        
       }
       else{
         alert("Intentalo Nuevamente");
-        todaslasImg[opcion1].setAttribute("src","imagenes/pregunta.jpg");
-        todaslasImg[opcion2].setAttribute("src","imagenes/pregunta.jpg");       
+        todaslasImg[opcion1].setAttribute("src","imagenes/incognito.jpg");
+        todaslasImg[opcion2].setAttribute("src","imagenes/incognito.jpg");       
        }
 
        imgElegida =[];
        imgElegidaID= [];
        aciertos.textContent = conteo.length;
+
        if (conteo.length===6){
-         
+        aciertos.textContent = "Ganaste :)";
+        alert("Ganaste")
+        location.reload()
+
 
        }
-
-    
-      
-
-
     }
 
     crearTablero();
